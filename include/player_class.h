@@ -15,20 +15,20 @@ class Player {
         Player(std::string, std::string, int, int, int); //constructor
         void create_new(); //initializes player selection.
         void add_spell(Spell); //adds a spell to character spell array.
-        int select_spell(); //display all spells then return selection.
-        int get_p_hp() {
+        void cast_spell(); //display all spells then return selection.
+        int get_hp() {
           return (p_hp);
         }
-        int get_p_mp() {
+        int get_mp() {
           return (p_mp);
         }
-        int get_p_classcode() {
+        int get_classcode() {
           return (p_classcode);
         }
-        std::string get_p_name() {
+        std::string get_name() {
           return (p_name);
         }
-        std::string get_p_class() {
+        std::string get_class() {
           return (p_class);
         }
 };

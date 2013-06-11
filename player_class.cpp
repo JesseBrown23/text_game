@@ -49,31 +49,32 @@ void Player::add_spell(Spell this_spell) {
 	spells.push_back(this_spell);
 }
 
-//TODO: make this work for any vector array in the program;
-bool assert_choice (std::vector<Spell> array) { //asserts that choice is valid 
-	std::cout << "ohai" << std::endl;
-	return true;
-}
-
-
-//display all spells then return selection
-int Player::select_spell() {
+// Prints all objects in array and prompts user for a choice.
+// Asserts and returns choice - 1.
+template <class type> //template for objects
+int get_choice (std::vector<type> array) { //asserts that choice is valid 
 	int i = 0;
 	std::string choice;
-	std::cout << "Spells:" << std::endl;
-
-	//make this into a function
+	std::cout << "Selection >" << std::endl;
 	while (1) {
-		for (i = 0; i < spells.size(); i++) 
-			std::cout << i+1 << ". " << spells.at(i).get_name() << std::endl;
+		for (i = 0; i < array.size(); i++) 
+			std::cout << i+1 << ". " << array.at(i).get_name() << std::endl;
 		std::cout << "Enter choice:" << std::endl;
 		std::cin >> choice;
 		int tmp = atoi(choice.c_str());
-		if (choice.size() == 1 && tmp > 0 && tmp <= spells.size()) 
-			std::cout << "Input OK, it was " << choice << " \n";
+		if (choice.size() == 1 && tmp > 0 && tmp <= array.size()) {
+			return (tmp - 1);
+		}
 		std::cin.clear();
 		std::cin.ignore(1);
 		std::cout << "Invalid input\n";
 	}
+}
+
+
+//handle spell casting;
+void Player::cast_spell() {
+	int result =  get_choice(spells);
+	std::cout << "You cast " + spells.at(result).get_name() + "!\n" << std::endl;
 }
 
