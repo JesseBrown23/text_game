@@ -1,7 +1,7 @@
 // event_class actual implemantations
 
 #include <string>
-#include <event.h>
+#include "event.h""
 
 //constructor; sets basic stats upon initialization
 Event::Event (std::string get_name, int get_index) {
