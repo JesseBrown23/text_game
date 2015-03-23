@@ -1,7 +1,7 @@
 // event_class actual implemantations
 
 #include <string>
-#include <spells.h>
+#include "spells.h"
 
 //constructor; sets basic stats upon initialization
 Spell::Spell (std::string name, int damage, int cost) {
