@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <player_class.h>
+#include "player_class.h"
 
 int main () {
 	std::cout << "New game:\n";
